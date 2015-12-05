@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>FrVoc</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+    <script src="/static/js/jquery-1.11.3.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        function RandNum(num){
+            return Math.floor(Math.random()*num);
+        }
+                
+        var Word,WUnit;
+        var Unit,u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12;
+        u1=u2=u3=u4=u5=u6=u7=u8=['n'];
+        u9 = ['agence ','agence immobiliere ','ancien(ne) ','annonce ','petite annonce ','appartement ','ascenseur ','avenue ','bout ','bruyant(e) ','bureau ','calme','chez ','clair(e) ','couloir ','cuisine ','souche ','entrée ','étage ','face ','immeuble ','immobilier(ère ) ','louer ','mètre ','mètre carré ','mois ','où ','parking ','placard ','plan ','premier(ère ) ','récent(e) ','responsable ','rez-de-chaussée ','salle ','salle de bains ','salutations ','sombre ','toilettes ','tropisme '];
+        u10 = ['après ','arriver ','banque ','bien sûr ','bus ','continuer ','direct(e) ','droit ','ensuite ','entrer ','jardin ','jusque ','là ','ligne ','loin ','métro ','moto ','musée ','opéra ','par ','pardon ','passer ','pied ','place ','poste ','prendre ','rollers ','tourner ','tout ','travail ','traverser ','vélo ','voiture '];
+        u11 = ['air ','air-conditionné ','bar ','bien sûr ','bord ','carte ','circuit ','conditionné(e) ','conseil ','différence ','est ','hélicoptère ','île ','jour ','juste ','mer','nord ','on','ouest ','parfait ','partie ','piscine ','plage ','puis ','réception ','restaurant ','sud ','télévision ','terrasse ','ville ','visites ','voyage ','agence de voyage ','week-end '];
+        u12 = ['aéroport ','aquarium ','archéologie ','art ','avion ','autour de ','bateau ','billet ','bise ',' carte ','centre ','château ','contemporain(e) ','destination ','gratuit(e) ','hôtel ','hôtel de ville ','institut ','intéressant(e) ','kilomètre ','marseille ','Méditerranéen(ne ) ','office ','palais ','port ','postal(e) ','carte postale ','prison ','quai ','quartier ','tourisme ','train ','vieux (vieille )','vitesse '];
+        Unit = [u1,u2,u3,u4,u5,u6,u7,u8,u9,u10,u11,u12];
+        
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle"
+        data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">Lorduino</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" style="color:#444444">
+            <li>
+            <a href="index.php">项目介绍</a>
+            </li>
+            <li>
+            <a href="default.php">文章</a>
+            </li>
+            <li>
+            <a href="#">浮子</a>
+            </li>
+            <li>
+            <a href="#">心网</a>
+            </li>
+            <li>
+            <a href="zju_index.php">团总支管理入口</a>
+            </li>
+            <li>
+            <a href="FrVoc.html">法语单词</a>
+            </li>
+            <li>
+            <a href="#">关于我们</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+    <div class="tyblue" style="height: 100px"></div>
+    <br>
+    <div class="container">
+        <div class="tcenter">
+            <div class="row">
+                <div class="col-xs-0 col-sm-2 col-md-3"></div>
+                <div class="col-xs-12 col-sm-4 col-md-6">
+                <div class="word">
+                    <select id="MINUnit"> 
+                        <option value="8" selected="selected">UNIT 9</option>
+                        <option value="9">UNIT 10</option>
+                        <option value="10">UNIT 11</option>
+                        <option value="11">UNIT 12</option>
+                    </select>
+                    <select id="MAXUnit"> 
+                        <option value="8">UNIT 9</option>
+                        <option value="9">UNIT 10</option>
+                        <option value="10">UNIT 11</option>
+                        <option value="11" selected="selected">UNIT 12</option>
+                    </select>
+                    <h1 id="word">Press Enter to give a word.</h1>
+                    <h2 id="unit"></h2>
+                    <button id="Button1" onclick="ChangeWord()" style="width:100px;height:50px">test</button>
+                    
+                </div>
+                </div>
+                <div class="col-xs-0 col-sm-2 col-md-3"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        document.onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode==13){ //按enter
+                document.getElementById("Button1").click();
+            }
+        }; 
+        document.getElementById("Button1").onclick=function(){
+            while(1){
+                    MINUnit = document.getElementById('MINUnit').value;
+                    MAXUnit = document.getElementById('MAXUnit').value;
+                    WUnit = RandNum(Unit.length);
+                    Word = Unit[WUnit][RandNum(Unit[WUnit].length)];
+                    if(Word!="n"&&(WUnit>=MINUnit&&WUnit<=MAXUnit))
+                        break;
+            }
+            document.getElementById("word").innerHTML=Word;
+            document.getElementById("unit").innerHTML="Unit "+(WUnit+1);
+        };
+    </script>
+</body>
+</html>
